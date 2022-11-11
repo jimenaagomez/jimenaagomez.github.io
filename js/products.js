@@ -1,4 +1,4 @@
-globalProducts = [];
+globalProducts = undefined;
 const PRODUCTOS = PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE;
 let minCost = undefined;
 let maxCost = undefined;
@@ -14,7 +14,7 @@ function setProdID(id) {
 }
 
 const showData = (array) => {
-  const container = document.getElementById('container2');
+  const container = document.getElementById('prod-list-container');
   container.innerHTML = "";
   for (let products of array) {
     container.innerHTML += `
@@ -111,4 +111,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+//global products esta arriba seria: globalProducts
+let titleFilter = undefined;
+let name = undefined;
+
+function prodSearch(){
+  const container = document.getElementById('prod-list-container');
+  container.innerHTML += ``
+let search = document.getElementById("inputProdSearch").value;
+titleFilter = globalProducts.products.filter(({name, description})=>{
+return name.toLowerCase().indexOf(search.toLowerCase()) > -1 || description.toLowerCase().indexOf(search.toLowerCase()) > -1;
+})
+showData(titleFilter)
+}
 

@@ -57,5 +57,30 @@ document.addEventListener("DOMContentLoaded", function(){
 (localStorage.getItem("text")); 
  usuario1.innerHTML = (localStorage.getItem("text"));
 });
-
+ /*(function () {
+    'use strict'
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  
+  
+    const forms = document.querySelectorAll('.needs-validation')
+   
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+  
+        // validación manual de que el input no sea menor que 1
+  
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+  
+        }
+  
+        form.classList.add('was-validated')
+  
+  
+      }, false)
+  
+    })
+  
+  })()*/
 

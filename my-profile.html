@@ -61,69 +61,96 @@
   </nav>
 
   <main>
+    
     <div class="text-center">
       <h1>Mi Perfil</h1>
     </div>
     <div class="container text-center">
-      <form class="needs-validation" novalidate >
-      <div class="row justify-content-center ">
-        <hr>
-        <br>
-        <div class="col-4">
-          <label for="firstName" class="form-label" value="" >Primer nombre*</label>
-           <input type="text" class="form-control" value="" placeholder="" id="firstName" aria-label="Name" required>
-           <div class="invalid-feedback">
-            Please choose a username.
+      <hr class="mb-10 ">
+      <div class="row justify-content-center">
+        <div class="col-8 ">
+          <form class="needs-validation" novalidate>
+
+            <div class="row justify-content-center ">
+
+              <br>
+              <div class="col-6">
+                <label for="firstName" class="form-label">Primer nombre*</label>
+                <input type="text" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">
+                  Ingrese un nombre válido
+                </div>
+              </div>
+
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row justify-content-center ">
+              <div class="col-6">
+                <label for="lastName" class="form-label">Primer apellido*</label>
+                <input type="text" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">
+                  Ingrese un apellido válido
+                </div>
+              </div>
+
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row justify-content-center ">
+              <div class="col-6">
+                <label for="emailProfile" class="form-label">E-mail*</label>
+                <input type="text" class="form-control" id="emailProfile" required>
+                <div class="invalid-feedback">
+                  Ingrese un e-mail válido
+                </div>
+              </div>
+
+              <div class="col-6">
+                <label for="image" class="form-label">Ingrese una foto</label>
+                <input type="file" class="form-control" id="image-input" accept="image/jpeg, image/png, image/jpg">
+              </div>
+            </div>
+
+            <div class="row justify-content-center ">
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Teléfono de contacto</label>
+                <input type="number" class="form-control" placeholder="" aria-label="">
+              </div>
+              <div class="col-6"></div>
+            </div>
+            <br>
+
+            <br>
+            <button type="submit" id="buttonProfile" class="btn btn-primary">Guardar cambios</button>
+          </form>
+        </div>
+
+        <div class="col-2">
+          <div class="row align-content-center">
+            <div class="col-10">
+              <h6>Foto de perfil:</h6>
+              <div id="display-image" class="img-thumbnail">
+                <!--<img
+            src="https://static.vecteezy.com/ti/vecteur-libre/t1/5544770-profil-icone-design-vecteur-gratuit-vectoriel.jpg"
+            alt="" width="150" height="150" > Poner una imagen predeterminada-->
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-4">
-          <label for="exampleFormControlInput1" class="form-label" >Segundo nombre</label>
-           <input type="text" class="form-control"  placeholder="Segundo nombre" aria-label="secondName">
-        </div>
+
       </div>
-      <div class="row justify-content-center ">
-        <div class="col-4">
-          <label for="lastName" class="form-label" >Primer apellido*</label>
-           <input type="text" class="form-control" placeholder="" id="lastName" aria-label="last name" required>
-           <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-        <div class="col-4">
-          <label for="exampleFormControlInput1" class="form-label" >Segundo Apellido</label>
-           <input type="text" class="form-control" placeholder="Segundo apellido"  aria-label="">
-        </div>
-      </div>
-      <div class="row justify-content-center ">
-        <div class="col-4">
-          <label for="Email"  class="form-label">E-mail*</label>
-          <input type="text" class="form-control" id="Email" placeholder="">
-          <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-        <div class="col-4">
-          <input type="file" class="form-control" id="inputGroupFile02">
-          <label class="input-group-text" for="inputGroupFile02">Upload</label>
-        </div>
-      </div>
-      <div class="row justify-content-center ">
-        <div class="col-4">
-          <label for="exampleFormControlInput1" class="form-label">Teléfono de contacto</label>
-           <input type="number" class="form-control" placeholder="" aria-label="">
-        </div>
-        <div class="col-4"></div>
-        </div>
-        <br>
-        <hr class="mb-4 ">
-        <br>
-        <button type="submit" id="buttonProfile" class="btn btn-primary">Guardar cambios</button>
-        </form>
-      </div>
+      <hr class="mb-10 ">
     </div>
-    <div id="prueba"></div>
   </main>
-  <footer class="text-muted">
+
+  <footer class="text-muted bg-dark">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>

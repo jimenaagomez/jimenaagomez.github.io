@@ -189,3 +189,10 @@ a.custom-card:hover {
   color: orange;
 }
 
+#display-image{
+  width: 250px;
+  height: 150px;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+}

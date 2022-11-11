@@ -46,97 +46,187 @@
     </div>
   </nav>
   <main>
-    <div id="container">
-    </div>
-    <br>
-    <br>
-    <div id="container2">
-    </div>
 
 
-    <br><br>
+    <div class="container col-10" id="container">
+      <br><br>
+    </div>
 
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <h4>Comentar</h4>
-          <p>Tu opinión</p>
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-              style="height: 100px"></textarea>
-            <label for="floatingTextarea2">Comentarios</label>
+      <div class="row">
+
+        <div class="col-12">
+          <div class="row row-cols-1 justify-content-center">
+            <p class="fs-2 text-center ">Comentarios sobre este producto:</p>
+            <div id="containerComments"></div>
+
           </div>
-          <p>Tu puntuación</p>
-          <div class="col-md-2">
-            <div class="form-floating">
-              <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                <option selected>Puntuación</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-      </div>
-      <div class="col-4">
-      </div>
-      <div class="text-center">
-      <button class="submit">Enviar</button>
-    </div>
-    </div>
-
-    <div id="container3">
-      <div></div>
-
-
-      <div id="container4">
-
-        <div class="">
+          <br><br>
+          <hr>
+          <br>
           <div class="container">
-            <div class="row justify-content-around" id="relatedProducts">
-
-            </div>
-          </div>
-        </div>
-
-
-        <!-- <div class="row row-cols-1 justify-content-center">
-
-          <div class="col-8">
-            <h1 class="text-center card-title ">Comentarios</h1>
-            <div class="card">
-              <div class="card-body">
-                <div class="row justify-content-lg-start">
-                  <div class="col-2">
-                    <h5 class="card-title">Título de la tarjeta</h5>
-                  </div>
-                  <div class="col-2">
-                    <p class="card-text">Título de la tarjeta</p>
-                  </div>
-                  <div class="col-8">
-                    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
-                      class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
-                      class="fa fa-star checked"></span>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <h4>¡Cuentanos que te pareció!</h4>
+                <p>Tu opinión</p>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                  <label for="floatingTextarea2">Comentarios</label>
+                </div>
+                <p>Tu puntuación</p>
+                <div class="col-md-2">
+                  <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                      <option selected>Puntuación</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                   </div>
                 </div>
-                <p class="card-text">Esta es una tarjeta más larga con texto de apoyo a continuación como introducción
-                  natural a contenido adicional. Este contenido es un poco más largo.</p>
+              </div>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+            </div>
+            <br>
+            <div>
+              <button class="btn btn-outline-primary" type="button">Enviar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    </div>
+    </div>
+
+    <div class="">
+      <div class="container text-center">
+        <h4>Continua viendo nuestros productos: </h4>
+        <br><br>
+        <div class="row justify-content-center" id="relatedComments">
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--
+    <div class="container"">
+      <div class="row">
+        <div class="col-8">
+
+          <div class="row row-cols-1 justify-content-center">
+
+            <div class="col-12">
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="row justify-content-lg-start">
+                    <div class="col-2">
+                      <h5 class="card-title">Título de la tarjeta</h5>
+                    </div>
+                    <div class="col-2">
+                      <p class="card-text">Título de la tarjeta</p>
+                    </div>
+                    <div class="col-8">
+                      <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
+                        class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span
+                        class="fa fa-star checked"></span>
+                    </div>
+                  </div>
+                  <p class="card-text">Esta es una tarjeta más larga con texto de apoyo a continuación como
+                    introducción
+                    natural a contenido adicional. Este contenido es un poco más largo.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <h4>Comentar</h4>
+                  <p>Tu opinión</p>
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Comentarios</label>
+                  </div>
+                  <p>Tu puntuación</p>
+                  <div class="col-md-2">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                        <option selected>Puntuación</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+              </div>
+              <div class="col-4">
+              </div>
+              <br>
+              <div>
+                <button class="btn btn-outline-primary" type="button">Enviar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col 4">
+          <div class="row d-flex justify-content-center ">
+            <div class="col-8">
+              <div class="card mb-4 shadow-sm custom-card cursor-active">
+                <img class="bd-placeholder-img card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT51WbNpS3oWNg8pm6752zWCa8kLyr8m2ZOnu3sZ274&s"
+                  alt="">
+                <h3 class="m-3">${related.name}</h3>
+                <div class="card-body">
+                  <p class="card-text">Click para ver más de ${related.name}.</p>
+                  <button class="btn btn-outline-primary" type="button">Agregar a la cesta</button>
+                </div>
+              </div>
+            </div>
+            <div class="row "></div>
+            <div class="col-8">
+              <div class="card mb-4 shadow-sm custom-card cursor-active">
+                <img class="bd-placeholder-img card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT51WbNpS3oWNg8pm6752zWCa8kLyr8m2ZOnu3sZ274&s"
+                  alt="">
+                <h3 class="m-3">${related.name}</h3>
+                <div class="card-body">
+                  <p class="card-text">Click para ver más de ${related.name}.</p>
+                  <button class="btn btn-outline-primary" type="button">Agregar a la cesta</button>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-
-        </div> -->
-
-
+    </div>
+    <hr>
+    </div>
+-->
   </main>
 
-  <footer class="text-muted">
+  <footer class="text-muted bg-dark">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
