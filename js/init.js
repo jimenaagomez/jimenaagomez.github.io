@@ -26,7 +26,7 @@ let getJSONData = function(url){
       if (response.ok) {
         return response.json();
       }else{
-        throw Error(response.statusText);
+        throw Error(response.statususer);
       }
     })
     .then(function(response) {
@@ -43,19 +43,19 @@ let getJSONData = function(url){
     });
 }
 
-function deleteItem(){
-  localStorage.removeItem("text")
+function deleteItem(){//cambiar nombre
+  localStorage.removeItem("user")
   window.location = "index.html";
 }
 
 
-const usuario1 = document.getElementById("usuario1")
-const email = document.getElementById("email");
-const button = document.getElementById("button");
+const usuario1 = document.getElementById("userLogin")
+const email = document.getElementById("emailIndex");
+const button = document.getElementById("buttonIndex");
 
 document.addEventListener("DOMContentLoaded", function(){
-(localStorage.getItem("text")); 
- usuario1.innerHTML = (localStorage.getItem("text"));
+(localStorage.getItem("user")); 
+ usuario1.innerHTML = (localStorage.getItem("user"));
 });
  /*(function () {
     'use strict'

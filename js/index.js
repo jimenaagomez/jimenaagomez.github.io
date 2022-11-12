@@ -1,13 +1,13 @@
-const usuario1 = document.getElementById("usuario1")
-const email = document.getElementById("email");
 const pass = document.getElementById("password");
-const button = document.getElementById("button");
+const usuario1 = document.getElementById("userLogin")
+const email = document.getElementById("emailIndex");
+const buttonIndex = document.getElementById("buttonIndex");
 
-button.addEventListener("click", (e) => { 
+buttonIndex.addEventListener("click", (e) => { 
     if (email.value.length < 1 || pass.value.length < 1){
         alert("Error, los campos estan vacios")
 } else{
     location.replace("home.html")
-    localStorage.setItem("text", email.value)
+    localStorage.setItem("user", email.value)
 }
 })

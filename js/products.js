@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  document.getElementById("sortAZ").addEventListener("click", () => {
+  document.getElementById("sortAsc").addEventListener("click", () => {
     globalProducts.products.sort((a, b) => {
       if (a.cost > b.cost) return 1;
       if (a.cost < b.cost) return -1;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showData(globalProducts.products);
   });
 
-  document.getElementById("sortZA").addEventListener("click", () => {
+  document.getElementById("sortDesc").addEventListener("click", () => {
     globalProducts.products.sort((a, b) => {
       if (a.cost > b.cost) return -1;
       if (a.cost < b.cost) return 1;
