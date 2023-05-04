@@ -1,5 +1,6 @@
 ## `ECOMMERCE JAP`
 
-Huerta gómez es una  página web, desarrollada con React Js, donde puedes mirar precios o comprar frutas o verduras.  
+ECOMMERCE JAP es una  página web, desarrollada con Html, Css y Javascript, donde puedes mirar precios o comprar items.
+Totalmente ilustrativa para el proyecto de Jovenes a Programar 2022.
 
-[¡Visítanos!](jimenaagomez.github.io) 
+[¡Visítanos!](https://jimenaagomez.github.io/home.html) 
