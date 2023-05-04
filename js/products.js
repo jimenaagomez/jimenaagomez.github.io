@@ -1,13 +1,8 @@
-globalProducts = undefined;
 const PRODUCTOS = PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE;
 let minCost = undefined;
 let maxCost = undefined;
-const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PROD_COUNT = "Cant.";
+globalProducts = undefined;
 
-
-//cambiar por prod
 function setProdID(id) {
   localStorage.setItem("ProdID", id);
   window.location = "product-info.html"
@@ -54,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   showData(globalProducts.products);
 
   document.getElementById("clearRangeFilter").addEventListener("click", function () {
+
     txtMinCost.value = "";
     txtMaxCost.value = "";
 
@@ -61,26 +57,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     maxCost = undefined;
 
     showData(globalProducts.products);
+
   });
 
   document.getElementById("rangeFilterCount").addEventListener("click", () => {
+
     const minCost = (txtMinCost.value);
     const maxCost = (txtMaxCost.value);
 
     if (minCost && !maxCost) {
       const filteredArray = globalProducts.products.filter((value) => value.cost >= minCost);
       showData(filteredArray)
-      console.log(filteredArray)
 
     } else if (!minCost && maxCost) {
       const filteredArray = globalProducts.products.filter((value) => value.cost <= maxCost);
       showData(filteredArray);
-      console.log(filteredArray)
 
     } else if (minCost && maxCost) {
       const filteredArray = globalProducts.products.filter(
         (value) => value.cost >= minCost && value.cost <= maxCost);
       showData(filteredArray);
+
     }
   });
 
@@ -107,21 +104,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (a.soldCount < b.soldCount) return 1;
       return 0;
     });
-    showData(globalProducts.products); // falta hacer por cantidad de articulos vendidos y modificar el html para que aparezca
+    showData(globalProducts.products); 
   });
 });
 
-//global products esta arriba seria: globalProducts
-let titleFilter = undefined;
-let name = undefined;
+
+
+
 
 function prodSearch(){
+
   const container = document.getElementById('prod-list-container');
   container.innerHTML += ``
-let search = document.getElementById("inputProdSearch").value;
-titleFilter = globalProducts.products.filter(({name, description})=>{
-return name.toLowerCase().indexOf(search.toLowerCase()) > -1 || description.toLowerCase().indexOf(search.toLowerCase()) > -1;
+  let search = document.getElementById("inputProdSearch").value;
+  let titleAndDescriptionFilter = globalProducts.products.filter(({name, description})=>{
+
+  return name.toLowerCase().indexOf(search.toLowerCase()) > -1 || description.toLowerCase().indexOf(search.toLowerCase()) > -1;
+
 })
-showData(titleFilter)
+showData(titleAndDescriptionFilter)
 }
 

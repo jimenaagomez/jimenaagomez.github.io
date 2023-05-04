@@ -1,106 +1,101 @@
 
 const CARTINFO = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
 const container = document.getElementById("container");
-
-const subTotalInf = document.getElementById("subtotalInf");
-const costoDeEnvioText = document.getElementById("costoDeEnvioText");
+const lowSubtotal = document.getElementById("subtotalInf");
+const shippingCostText = document.getElementById("shippingCostText");
 const totalCostText = document.getElementById("totalCostText");
 
 
 
-function showData5(array) {
-  let htmlContenido = "";
+function showData(array) {
+  let htmlContent = "";
 
   for (let i = 0; i < array.length; i++) {
     let item = array[i];
-    htmlContenido += `<div class="table-responsive">
-    <table class="table">
-    <tbody> <tr>
-     <td class="col-md-1"><img src="${item.image}" width="50" height="50" alt=""  class="img-thumbnail" href="product-info.html"></td>
-     <td class="col-md-2">${item.name}</td>
-     <td class="col-md-2">${item.currency}<span class="costUnit">${item.unitCost}</span></td>
-     <td class="col-md-2"> <input type="number" class="cant" oninput="multiplicar(${i})" name="tentacles" value="" min="1" max="10000000" required/> <p id="inputError" class="invalid-feedback"></p></td>
-     <td class="col-md-2" id="${i}"> <span>${item.currency}</span> <span class="subtotal">${item.unitCost}</span></td>
-     </tr> 
-     </tbody>
-     </table>
-     </div>
+    htmlContent += `<div class="table-responsive">
+                        <table class="table">
+                           <tbody> 
+                           <tr>
+                              <td class="col-md-1"><img src="${item.image}" width="50" height="50" alt=""  class="img-thumbnail" href="product-info.html"></td>
+                              <td class="col-md-2">${item.name}</td>
+                              <td class="col-md-2">${item.currency}<span class="unitCost">${item.unitCost}</span></td>
+                              <td class="col-md-2"> <input type="number" class="amountOfProducts" oninput="calcTopTotal(${i})" name="tentacles" value="" min="1" max="10000000" required/> <p id="inputError" class="invalid-feedback"></p></td>
+                              <td class="col-md-2" id="${i}"> <span>${item.currency}</span> <span class="subtotal">${item.unitCost}</span></td>
+                            </tr> 
+                          </tbody>
+                        </table>
+                      </div>
  `;
-    container.innerHTML = htmlContenido;
+    container.innerHTML = htmlContent;
   }
 
 }
 
-const goldRadio = document.getElementById("goldradio");
 const premiumRadio = document.getElementById("premiumradio");
+const expressRadio = document.getElementById("expressradio");
 const standardRadio = document.getElementById("standardradio");
 
-let percCost = 15;
+let shippingCost = 15;
 function showCostEnvio() {
-  percCost = parseFloat(
-    goldRadio.checked
-      ? goldRadio.value
-      : premiumRadio.checked
-        ? premiumRadio.value
+  shippingCost = parseFloat(
+    premiumRadio.checked
+      ? premiumRadio.value
+      : expressRadio.checked
+        ? expressRadio.value
         : 5)
 }
 
 
-//variables para ser utilizadas en otra function
-let cant = "";
+let amountOfProducts = "";
 let DOLLAR_SYMBOL = "USD ";
-let totalMultiplicado = 0;
-let subTotalSup = 0;
+let totalMultiplied = 0;
+let subTotalTop = 0;
 
 
-//sup
-function multiplicar(indice) {
-  percCost = "";
-  let unitCost = document.getElementsByClassName("costUnit")[indice].innerHTML;
-  cant = document.getElementsByClassName("cant")[indice].value;
-  subTotalSup = document.getElementsByClassName("subtotal")[indice];
+function calcTopTotal(indice) {
+  shippingCost = "";
+  let unitCost = document.getElementsByClassName("unitCost")[indice].innerHTML;
+  amountOfProducts = document.getElementsByClassName("amountOfProducts")[indice].value;
+  subTotalTop = document.getElementsByClassName("subtotal")[indice];
 
-  if (unitCost == NaN || cant == undefined || cant == "") {
-    unitCost.innerHTML = `<span class="costUnit">0</span>;`;
+  if (unitCost == NaN || amountOfProducts == undefined || amountOfProducts == "") {
+    unitCost.innerHTML = `<span class="unitCost">0</span>;`;
   } if (unitCost !== NaN) {
-    totalMultiplicado = parseFloat(cant) * parseFloat(unitCost);
-    subTotalSup.innerHTML = `<span class="costTotal">${totalMultiplicado}</span>`; //subtotalsuperior
-    subTotalInf.innerHTML = DOLLAR_SYMBOL + `<span class="costTotal2" id="tot${indice}">${totalMultiplicado}</span>`; //subtotal inferior
+    totalMultiplied = parseFloat(amountOfProducts) * parseFloat(unitCost);
+    subTotalTop.innerHTML = `<span class="costTotal">${totalMultiplied}</span>`; 
+    lowSubtotal.innerHTML = DOLLAR_SYMBOL + `<span class="costTotal2" id="tot${indice}">${totalMultiplied}</span>`; 
   }
 }
 
-//function para calcular los totales y subtotales de la parte inferior
-function showInf() {
-  if (percCost !== NaN || percCost !== undefined || percCost !== "" || percCost <= 1 || subTotalSup !== NaN || subTotalSup !== undefined || subTotalSup !== "") {
-    console.log(typeof subTotalSup)
-    total5 = "USD " + (subTotalSup.innerText * (percCost / 100 + 1)).toFixed(1); //calculo del total porque esta el + 1
-    totalCostText.innerHTML = total5;
-    costoDeEnvioText.innerHTML = "USD " + (subTotalSup.innerText * (percCost / 100)).toFixed(1); //calculo del envio
+function calcLowTotal() {
+  if (shippingCost !== NaN || shippingCost !== undefined || shippingCost !== "" || shippingCost <= 1 || subTotalTop !== NaN || subTotalTop !== undefined || subTotalTop !== "") {
+    total = "USD " + (subTotalTop.innerText * (shippingCost / 100 + 1)).toFixed(1); 
+    totalCostText.innerHTML = total;
+    shippingCostText.innerHTML = "USD " + (subTotalTop.innerText * (shippingCost / 100)).toFixed(1); 
   }
   else {
     totalCostText.innerHTML = 0;
-    costoDeEnvioText.innerHTML = "USD " + 0;
+    shippingCostText.innerHTML = "USD " + 0;
   }
 }
 
-//function basada en sell.js
 document.addEventListener("DOMContentLoaded", function (e) {
 
-  goldRadio.addEventListener("change", function () {
+  premiumRadio.addEventListener("change", function () {
 
-    percCost = 15;
-    showInf();
+    shippingCost = 15;
+    calcLowTotal();
 
   });
-  premiumRadio.addEventListener("change", function () {
-    percCost = 7;
-    showInf();
+  expressRadio.addEventListener("change", function () {
+    shippingCost = 7;
+    calcLowTotal();
 
   });
   standardRadio.addEventListener("change", function () {
 
-    percCost = 5;
-    showInf();
+    shippingCost = 5;
+    calcLowTotal();
   });
 });
 
@@ -110,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const json = await response.json();
 
   cartInfo = json;
-  showData5(cartInfo.articles)
+  showData(cartInfo.articles)
 });
 
 const buttonCreditCard = document.getElementById("creditCard");
@@ -120,11 +115,9 @@ const expiration = document.getElementById("expiration");
 const wireTransfer = document.getElementById("wireTransfer");
 const accountNumber = document.getElementById("accountNumber");
 
-//codigo extraido de boostrap
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+
 (function () {
   'use strict'
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
 
 
   const forms = document.querySelectorAll('.needs-validation')
@@ -132,11 +125,9 @@ const accountNumber = document.getElementById("accountNumber");
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener('submit', function (event) {
 
-      // validación manual de que el input no sea menor que 1
-      if (cant < 1) {
+      if (amountOfProducts < 1) {
         document.getElementById("inputError").innerHTML = `El número ingresado debe ser mayor a 1`;
       }
-      // validación manual de que alguna de las opciones tiene que estar seleccionada como metodo de pago
       if (!buttonCreditCard.checked && !wireTransfer.checked) {
         feedback_checkbox.innerHTML = `<p style="color:#dc3545">Debe seleccionar una forma de pago<p>`;
         feedback_checkbox.style.color = "";
@@ -154,11 +145,6 @@ const accountNumber = document.getElementById("accountNumber");
 
       }
       if (form.checkValidity()) {
-        /*Swal.fire({
-          title: 'Bienvenido',
-          backdrop: true,
-          timer: 10000
-        })*/
         alert('¡Has comprado con éxito!')
       }
 
@@ -173,27 +159,26 @@ const accountNumber = document.getElementById("accountNumber");
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  //si ninguna de los botones esta chequeado, queda todo en disabled, usando el metodo setattribute, proporcionandole el valor verdadero al atributo disabled
+
   if (!wireTransfer.checked && !buttonCreditCard.checked) {
+
     numCreditCard.setAttribute("disabled", "")
     securityCode.setAttribute("disabled", "")
     expiration.setAttribute("disabled", "")
     accountNumber.setAttribute("disabled", "");
 
     buttonCreditCard.addEventListener("change", () => {
-      //si la cuenta bancaria no esta chequeado y  tarjeta de credito si, entonces removemosel valor disabled de los campos
 
         numCreditCard.removeAttribute("disabled")
         securityCode.removeAttribute("disabled")
         expiration.removeAttribute("disabled")
         wireTransfer.removeAttribute("required")
-        // y mandamos al inner que fue seleccionada la tarjeta de credit
         document.getElementById("selectionPay").innerHTML = `Tarjeta de credito seleccionada`;
         if (accountNumber.getAttribute("disabled") === null) {
           accountNumber.setAttribute("disabled", "");
       }
     })
-    // lo mismo pero alreves
+
     wireTransfer.addEventListener("change", () => {
         accountNumber.removeAttribute("disabled")
         document.getElementById("selectionPay").innerHTML = `Transferencia bancaria seleccionada`; //

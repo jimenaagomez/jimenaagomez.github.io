@@ -109,23 +109,24 @@ function showComments(array) {
     let comments = array[i];
     htmlContent += `
                       <div class="col-12">
-                      <div class="card">
-                      <div class="card-body">
-                        <div class="row justify-content-lg-start">
+                      <div class="card mb-2">
+                      <div class="card-body mb-2">
+                        <div class="row justify-content-lg-start mb-3">
                           <div class="col-2">
                             <h6 class="card-title">Usuario: ${comments.user}</h6>
                           </div>
-                          <div class="col-2">
+                          <div class="col-3">
                             <p class="card-text">Fecha:${comments.dateTime}</p>
                           </div>
-                          <div class="col-8">`
+                          <div class="col-7">`
                           for (let i = 0; i < 5; i++) {
                             if (i < comments.score) {
                               htmlContent += `<span class="fa fa-star checked"></span>`
                             } else {
                               htmlContent += `<span class="fa fa-star" style="color: black"></span>`
-                            }}
-                            htmlContent += `</div>
+                            }
+                          }
+                          htmlContent += `</div>
                         </div>
                         <p class="card-text">${comments.description}</p>
                       </div>
@@ -142,7 +143,7 @@ function showRelatedProducts(array) {
   for (let i = 0; i < array.length; i++) {
     let related = array[i];
     relatedComments.innerHTML +=
-    ` <div class="col-md-3" onClick="setProdInfoID(${related.id})">
+      ` <div class="col-md-3" onClick="setProdInfoID(${related.id})">
             <div class="card mb-3 shadow-sm custom-card cursor-active" >
               <img class="bd-placeholder-img card-img-top" src="${related.image}"
                 alt="">
@@ -170,9 +171,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const json = await response.json();
 
   productsInfo = json;
- showData1(productsInfo)
-
-showRelatedProducts(productsInfo.relatedProducts)
+  showData1(productsInfo)
+  showRelatedProducts(productsInfo.relatedProducts)
 
   if (productsInfo !== "") {
     const response = await fetch(COMMENTSINFO);
